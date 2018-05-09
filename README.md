@@ -5,9 +5,8 @@ The assessment is of date 05/05/2018.
 
 # Coveage Result Task 1
 
-+---------------------------------------------------------------------+-------+---------------+------------+
 | File                                                                | Lines | Covered Lines | Percentage |
-+---------------------------------------------------------------------+-------+---------------+------------+
+|---------------------------------------------------------------------|-------|---------------|------------|
 | crossblog/Controllers/ArticlesController.cs                         |   55  |       54      |   98.182%  |
 | crossblog/Controllers/CommentsController.cs                         |   61  |       60      |   98.361%  |
 | crossblog/Domain/Article.cs                                         |    4  |        4      |  100.000%  |
@@ -24,22 +23,25 @@ The assessment is of date 05/05/2018.
 | crossblog/Repositories/ArticleRepository.cs                         |    2  |        0      |    0.000%  |
 | crossblog/Repositories/CommentRepository.cs                         |    2  |        0      |    0.000%  |
 | crossblog/Repositories/GenericRepository.cs                         |   13  |        0      |    0.000%  |
-+---------------------------------------------------------------------+-------+---------------+------------+
+|  |  |  |  |
 | All files                                                           |  187  |      141      |   75.401%  |
-+---------------------------------------------------------------------+-------+---------------+------------+
 
 # Fix Bugs Task 2
 
-Fix Article not deleting bug. On T entity =  await GetAsync(id);
+Fix Article not deleting bug. On GenericRepository.cs line 43
+
+        T entity =  await GetAsync(id);
 
 # Optimize DB Task 3
 
 Changed Content column to varchar 32000
+
         [StringLength(32000)]
         [Column(TypeName="VARCHAR(32000)")]
         public string Content { get; set; }
 
 Added fulltext index to Articles.Content column
+
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql("ALTER TABLE `crossblog`.`Articles` ADD FULLTEXT INDEX `ContentTextIndex` (`Content` ASC);");
