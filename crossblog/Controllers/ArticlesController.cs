@@ -106,7 +106,7 @@ namespace crossblog.Controllers
 
             article.Title = model.Title;
             article.Content = model.Content;
-            article.Date = DateTime.UtcNow;
+            article.Date = model.Date;         //Bug, chaged from DateTime.UtcNow to 
             article.Published = model.Published;
 
             await _articleRepository.UpdateAsync(article);
@@ -125,7 +125,8 @@ namespace crossblog.Controllers
                 return NotFound();
             }
 
-            await _articleRepository.DeleteAsync(id);
+            article = null;
+            await _articleRepository.DeleteAsync(id);       //Bug fix, delete not working
 
             return Ok();
         }

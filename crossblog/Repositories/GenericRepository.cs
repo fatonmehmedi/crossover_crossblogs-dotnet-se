@@ -40,7 +40,7 @@ namespace crossblog.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            T entity = new T() { Id = id };
+            T entity =  await GetAsync(id);
 
             _dbContext.Entry(entity).State = EntityState.Deleted;
             await _dbContext.SaveChangesAsync();

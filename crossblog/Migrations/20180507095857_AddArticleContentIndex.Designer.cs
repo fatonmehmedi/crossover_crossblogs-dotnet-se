@@ -11,9 +11,10 @@ using System;
 namespace crossblog.Migrations
 {
     [DbContext(typeof(CrossBlogDbContext))]
-    partial class CrossBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180507095857_AddArticleContentIndex")]
+    partial class AddArticleContentIndex
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
