@@ -1,0 +1,6 @@
+coverage-hits.txt
+coverage.json
+*/bin/*
+*/obj/*
+.vscode
+*/Properties
